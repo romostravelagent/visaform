@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visa Application Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Visa Application Form</h1>
+            <p>Fill out the form below to apply for a visa and select the additional services you need.</p>
+        </header>
+
+        <form id="visaApplicationForm" action="submit_form.php" method="post" enctype="multipart/form-data">
+            <!-- Personal Details Section -->
+            <div class="section">
+                <h2>Personal Information</h2>
+                <label for="fullName">Full Legal Name</label>
+                <input type="text" id="fullName" name="fullName" required>
+
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" name="dob" required>
+
+                <label for="nationality">Nationality</label>
+                <input type="text" id="nationality" name="nationality" required>
+
+                <label for="address">Current Address</label>
+                <input type="text" id="address" name="address" required>
+            </div>
+
+            <!-- Passport Information Section -->
+            <div class="section">
+                <h2>Passport Information</h2>
+                <label for="passportNumber">Passport Number</label>
+                <input type="text" id="passportNumber" name="passportNumber" required>
+
+                <label for="issueDate">Passport Issue Date</label>
+                <input type="date" id="issueDate" name="issueDate" required>
+
+                <label for="expiryDate">Passport Expiry Date</label>
+                <input type="date" id="expiryDate" name="expiryDate" required>
+
+                <label for="passportUpload">Upload Passport Copy</label>
+                <input type="file" id="passportUpload" name="passportUpload" accept="image/*,application/pdf" required>
+            </div>
+
+            <!-- Travel Information Section -->
+            <div class="section">
+                <h2>Travel Information</h2>
+                <label for="travelDate">Intended Travel Date</label>
+                <input type="date" id="travelDate" name="travelDate" required>
+
+                <label for="travelPurpose">Purpose of Travel</label>
+                <select id="travelPurpose" name="travelPurpose" required>
+                    <option value="Tourism">Tourism</option>
+                    <option value="Business">Business</option>
+                    <option value="Family Visit">Family Visit</option>
+                </select>
+
+                <label for="hotelDetails">Hotel Accommodation Details</label>
+                <textarea id="hotelDetails" name="hotelDetails" required></textarea>
+
+                <label for="flightDetails">Flight Itinerary</label>
+                <input type="text" id="flightDetails" name="flightDetails" required>
+            </div>
+
+            <!-- Financial Details Section -->
+            <div class="section">
+                <h2>Proof of Funds</h2>
+                <label for="fundsProof">Upload Proof of Funds (Bank Statement)</label>
+                <input type="file" id="fundsProof" name="fundsProof" accept="image/*,application/pdf" required>
+            </div>
+
+            <!-- Visa Fee Payment Section -->
+            <form id="visaApplicationForm" action="payment.html" method="get">
+                <div class="section">
+                    <h2>Visa Details</h2>
+                    <label for="visaType">Select Visa Type</label>
+                    <select id="visaType" name="visaType" required>
+                        <option value="Tourist">Tourist Visa - $2,200</option>
+                        <option value="Business">Business Visa - $3,100</option>
+                        <option value="Family">Family Visa - $4,150</option>
+                        <option value="Working">Working Visa - $850</option>
+                    </select>
+                </div>
+    
+                <div class="section">
+                    <h2>Additional Services</h2>
+                    <label><input type="checkbox" id="medicalShot" name="medicalShot"> Medical Shot - $350.00</label><br>
+                    <label><input type="checkbox" id="policeReport" name="policeReport"> Police Report - $99.00</label><br>
+                    <label><input type="checkbox" id="flightTicket" name="flightTicket"> Flight Ticket - $1,750.00</label><br>
+                    <label><input type="checkbox" id="accommodationFees" name="accommodationFees"> Accommodation Fees - $3,300.00</label><br>
+                </div>
+    
+                <div class="section">
+                    <h2 id="totalAmount">Total Amount: $0.00</h2>
+                </div>
+    
+                <button type="submit" id="submitBtn">Proceed to Payment</button>
+            </form>
+        </div>
+    
+        <script src="script.js"></script>
+    </body>
+    </html>    

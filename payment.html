@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visa Payment</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Payment Details</h1>
+            <p>Please complete your payment and upload the payment receipt.</p>
+        </header>
+
+        <div class="section">
+            <h2>Bank Details for Payment</h2>
+            <p>Transfer the total amount to the following account:</p>
+            <ul>
+                <li><strong>Name:</strong> Зоя Келли Лонгстафф</li>
+                <li><strong>Card Number:</strong> 2200 2402 0643 3530</li>
+                <li><strong>Bank:</strong> ВТБ</li>
+                <li><strong>Phone:</strong> +7 981 859 6736</li>
+            </ul>
+            <p>Reference your application ID when making the payment.</p>
+        </div>
+
+        <div class="section">
+            <h2>Total Amount Due</h2>
+            <p id="totalAmountDue">Total Amount: $0.00</p>
+        </div>
+
+        <form id="paymentForm" action="upload.php" method="POST" enctype="multipart/form-data">
+            <div class="section">
+                <label for="receipt">Upload Payment Receipt</label>
+                <input type="file" id="receipt" name="receipt" accept="image/*,application/pdf" required>
+            </div>
+
+            <button type="submit" id="submitReceipt">Done</button>
+        </form>
+    </div>
+
+    <script src="payment.js"></script>
+</body>
+</html>
