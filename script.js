@@ -18,9 +18,8 @@ document.querySelectorAll('input[type=checkbox], select').forEach(item => {
     item.addEventListener('change', calculateTotal);
 });
 
-// Function to calculate total amount
+// Calculate Total Amount based on selections
 function calculateTotal() {
-    // Base prices for each visa type
     const visaPrices = {
         "Tourist": 2200,
         "Business": 3100,
@@ -28,7 +27,6 @@ function calculateTotal() {
         "Working": 850
     };
 
-    // Additional service prices
     const servicesPrices = {
         "medicalShot": 350,
         "policeReport": 99,
@@ -36,33 +34,26 @@ function calculateTotal() {
         "accommodationFees": 3300
     };
 
-    // Get selected visa type
     let visaType = document.getElementById("visaType").value;
     let total = visaPrices[visaType] || 0;
 
-    // Check if additional services are selected and add their prices
-    if (document.getElementById("medicalShot").checked) {
-        total += servicesPrices.medicalShot;
-    }
-    if (document.getElementById("policeReport").checked) {
-        total += servicesPrices.policeReport;
-    }
-    if (document.getElementById("flightTicket").checked) {
-        total += servicesPrices.flightTicket;
-    }
-    if (document.getElementById("accommodationFees").checked) {
-        total += servicesPrices.accommodationFees;
-    }
+    if (document.getElementById("medicalShot").checked) total += servicesPrices.medicalShot;
+    if (document.getElementById("policeReport").checked) total += servicesPrices.policeReport;
+    if (document.getElementById("flightTicket").checked) total += servicesPrices.flightTicket;
+    if (document.getElementById("accommodationFees").checked) total += servicesPrices.accommodationFees;
 
-    // Store total amount in localStorage
     localStorage.setItem('totalAmount', total.toFixed(2));
-
-    // Update the total amount on the page
     document.getElementById("totalAmount").textContent = "Total Amount: $" + total.toFixed(2);
 }
 
-// Calculate total on page load
-calculateTotal();
+// Event listeners for form elements
+document.querySelectorAll('input[type=checkbox], select').forEach(item => {
+    item.addEventListener('change', calculateTotal);
+});
+
+// Update the total on page load
+window.onload = calculateTotal;
+
 
 // Prevent default form submission and redirect to payment page
 document.getElementById("visaApplicationForm").addEventListener("submit", function(event) {
